@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Свет для блогеров | Украина</title>
+
+<style>
+body {font-family: Arial; margin:0; background:#f5f5f5;}
+header {background:#111; color:#fff; padding:20px; text-align:center;}
+.container {max-width:1200px; margin:auto; padding:20px;}
+.grid {display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:15px;}
+.card {background:#fff; padding:15px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.1);}
+.card img {width:100%; border-radius:10px;}
+.btn {display:block; margin-top:10px; padding:10px; background:#007bff; color:#fff; text-align:center; border-radius:5px; text-decoration:none;}
+footer {background:#111; color:#fff; text-align:center; padding:20px; margin-top:30px;}
+</style>
+
+</head>
+<body>
+
+<header>
+<h1>Свет и оборудование для блогеров</h1>
+<p>Доставка по Украине | Наложенный платёж</p>
+</header>
+
+<div class="container">
+<h2>Каталог товаров</h2>
+
+<div class="grid" id="products"></div>
+
+<h2>Контакты</h2>
+<p>Telegram: <a href="https://t.me/yourtelegram">@yourtelegram</a></p>
+<p>Телефон: +38XXXXXXXXXX</p>
+<p>Viber: +38XXXXXXXXXX</p>
+
+<h2>Как заказать</h2>
+<ol>
+<li>Напишите нам</li>
+<li>Уточните товар</li>
+<li>Отправка Новой Почтой</li>
+<li>Оплата при получении</li>
+</ol>
+
+</div>
+
+<footer>
+<p>© 2026 Свет для блогеров</p>
+</footer>
+
+<script>
+const products = [];
+
+// 🔥 СЮДА ДОБАВЛЯЕШЬ СВОИ ТОВАРЫ
+products.push(
+{
+name: "Кольцевая лампа 26 см",
+price: "499 грн",
+img: "https://via.placeholder.com/300",
+link: "https://t.me/yourtelegram"
+},
+{
+name: "Петличный микрофон Boya",
+price: "299 грн",
+img: "https://via.placeholder.com/300",
+link: "https://t.me/yourtelegram"
+}
+);
+
+// 🔥 ДОБИВКА ДО 100 ТОВАРОВ (авто)
+for(let i=3;i<=100;i++){
+products.push({
+name: "Товар " + i,
+price: Math.floor(Math.random()*500+200) + " грн",
+img: "https://via.placeholder.com/300",
+link: "https://t.me/yourtelegram"
+});
+}
+
+const container = document.getElementById("products");
+
+products.forEach(p=>{
+const div = document.createElement("div");
+div.className="card";
+
+div.innerHTML = `
+<img src="${p.img}">
+<h3>${p.name}</h3>
+<p>Цена: ${p.price}</p>
+<a class="btn" href="${p.link}" target="_blank">Заказать</a>
+`;
+
+container.appendChild(div);
+});
+</script>
+
+</body>
+</html>
